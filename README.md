@@ -2,6 +2,12 @@
 ---
 
 ## :heavy_check_mark: Requirements
- - JDK8
+ - Jdk8
 
 ---
+
+
+## :whale: Local Dependencies
+Execute `docker-compose -f ./docker/docker-compose.yml up` to start all dependencies
+
+--

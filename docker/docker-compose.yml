@@ -1,0 +1,17 @@
+version: "3.7"
+
+networks:
+  default:
+    name: "sample_application"
+
+services:
+  sample-application-postgres:
+    container_name: sample_application_postgres
+    image: postgres:12-alpine
+    ports:
+      - "5440:5432"
+    environment:
+      POSTGRES_USER: sample-application
+      POSTGRES_PASSWORD: sample-application
+      POSTGRES_DB: sample-application
+      PGDATA: /var/lib/postgresql/data/sample-application/pgdata

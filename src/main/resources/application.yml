@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:file:./local.properties
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  datasource:
+    name: sample-application
+    url: ${database.url}
+    username: ${database.username}
+    password: ${database.password}
+    hikari:
+      maximum-pool-size: 5
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    root: INFO
