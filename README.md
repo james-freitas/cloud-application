@@ -1,9 +1,8 @@
 <h1 align="center">Spring Boot Cloud Application</h1>
 
 ## :heavy_check_mark: Requirements
- - Jdk8
+ - Java Development Kit 8 (jdk8)
 
----
 
 ## :airplane: How to run locally
 ```shell
@@ -16,4 +15,4 @@ docker-compose -f ./docker/docker-compose.yml up
   
 ```
 
---
+---
