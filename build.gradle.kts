@@ -27,13 +27,19 @@ dependencies {
 
 	// Database
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.flywaydb:flyway-core")
 	runtimeOnly("org.postgresql:postgresql")
 
 	// Validation
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 
 	// Web
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
+	}
+	implementation("org.springframework.boot:spring-boot-starter-jetty")
+
+
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 	// Kotlin
