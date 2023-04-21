@@ -9,10 +9,10 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Repository
-interface ProductRepository : JpaRepository<Product, Long>
+interface ProductRepository : JpaRepository<ProductEntity, Long>
 
 @Entity
-class Product {
+class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
