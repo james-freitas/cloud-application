@@ -1,13 +1,19 @@
-# Welcome to Spring Boot Cloud Application
----
+<h1 align="center">Spring Boot Cloud Application</h1>
 
 ## :heavy_check_mark: Requirements
  - Jdk8
 
 ---
 
+## :airplane: How to run locally
+```shell
 
-## :whale: Local Dependencies
-Execute `docker-compose -f ./docker/docker-compose.yml up` to start all dependencies
+# start all dependencies
+docker-compose -f ./docker/docker-compose.yml up
+
+## start web application
+./gradlew bootRun
+  
+```
 
 --
