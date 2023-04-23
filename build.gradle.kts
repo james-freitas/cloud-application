@@ -72,3 +72,29 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
+/****** Integration tests configuration ********/
+sourceSets {
+	create("integrationTest") {
+		compileClasspath += sourceSets.main.get().output
+		runtimeClasspath += sourceSets.main.get().output
+	}
+}
+
+configurations["integrationTestRuntimeOnly"].extendsFrom(configurations.runtimeOnly.get())
+
+val integrationTestImplementation: Configuration by configurations.getting {
+	extendsFrom(configurations.implementation.get())
+}
+
+dependencies {
+	integrationTestImplementation("org.testcontainers:testcontainers")
+	integrationTestImplementation("org.testcontainers:junit-jupiter:1.16.0")
+	integrationTestImplementation("org.testcontainers:postgresql:1.16.0")
+	integrationTestImplementation("org.slf4j:slf4j-api")
+	integrationTestImplementation("ch.qos.logback:logback-classic")
+	integrationTestImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+	}
+}

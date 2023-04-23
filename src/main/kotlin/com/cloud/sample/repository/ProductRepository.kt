@@ -3,15 +3,13 @@ package com.cloud.sample.repository
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.math.BigDecimal
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Repository
 interface ProductRepository : JpaRepository<ProductEntity, Long>
 
 @Entity
+@Table(name = "product")
 class ProductEntity {
 
     @Id
