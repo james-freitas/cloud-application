@@ -1,10 +1,14 @@
 version: "3.7"
 
+volumes:
+  prometheus_data: {}
+
 networks:
   default:
     name: "sample_application"
 
 services:
+
   sample-application-postgres:
     container_name: sample_application_postgres
     image: postgres:12-alpine
@@ -15,3 +19,12 @@ services:
       POSTGRES_PASSWORD: sample-application
       POSTGRES_DB: sample-application
       PGDATA: /var/lib/postgresql/data/sample-application/pgdata
+
+  sample-application-prometheus:
+    image: prom/prometheus:v2.30.3
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus/sample
+    ports:
+      - 9090:9090
+    restart: always
