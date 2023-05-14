@@ -21,10 +21,12 @@ services:
       PGDATA: /var/lib/postgresql/data/sample-application/pgdata
 
   sample-application-prometheus:
-    image: prom/prometheus:v2.30.3
+    image: prom/prometheus:latest
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus/sample
     ports:
       - 9090:9090
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
     restart: always

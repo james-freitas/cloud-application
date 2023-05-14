@@ -5,6 +5,8 @@
 
 ## :bar_chart: Observability Tools
  - Prometheus: http://localhost:9090/
+   - Check the application health on _Status_ > _Targets_
+   - > In `docker/docker-compose.yml` replace **172.17.0.1** by your local machine IP or remove the `extra_hosts` configuration
 
 ## :airplane: How to run locally
 ```shell
