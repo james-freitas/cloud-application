@@ -17,8 +17,6 @@
      - > `micrometer` JVM (Micrometer) - 4701
      - > `spring boot statistics` Spring Boot Statistics & Endpoint Metrics - 14430
 
-https://grafana.com/grafana/dashboards/4701-jvm-micrometer/
-
 ## :airplane: How to run locally
 ```shell
 
