@@ -2,6 +2,7 @@ version: "3.7"
 
 volumes:
   prometheus_data: {}
+  grafana_data: {}
 
 networks:
   default:
@@ -29,4 +30,13 @@ services:
       - 9090:9090
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
+    restart: always
+
+  sample-application-grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana/sample-application
     restart: always
